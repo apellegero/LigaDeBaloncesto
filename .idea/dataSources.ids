@@ -13,6 +13,16 @@
       <column name="fecha_creacion" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <column name="nombre" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_7f9y0bpm38td8yeco186dqds7" table="equipo_temporadas" schema="" catalog="ligaDeBasquet" columns="equipos_id"/>
+      <exported-key name="FK_rjbi50mokmwhoexul2uvcl4l6" table="jugador" schema="" catalog="ligaDeBasquet" columns="jugadors_id"/>
+    </table>
+    <table name="equipo_temporadas" schema="" catalog="ligaDeBasquet" type="TABLE">
+      <column name="equipos_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="temporadas_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="equipos_id,temporadas_id"/>
+      <foreign-key name="FK_7f9y0bpm38td8yeco186dqds7" columns="equipos_id" ref-table="equipo" ref-schema="" ref-catalog="ligaDeBasquet" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_e80kuvpldhbhtww4agcdpv2hi" columns="temporadas_id" ref-table="temporada" ref-schema="" ref-catalog="ligaDeBasquet" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_e80kuvpldhbhtww4agcdpv2hi" unique="false" columns="temporadas_id"/>
     </table>
     <table name="jugador" schema="" catalog="ligaDeBasquet" type="TABLE">
       <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
@@ -22,7 +32,16 @@
       <column name="nombre" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="posicion" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="rebotes" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="jugadors_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_rjbi50mokmwhoexul2uvcl4l6" columns="jugadors_id" ref-table="equipo" ref-schema="" ref-catalog="ligaDeBasquet" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_rjbi50mokmwhoexul2uvcl4l6" unique="false" columns="jugadors_id"/>
+    </table>
+    <table name="temporada" schema="" catalog="ligaDeBasquet" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="any" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_e80kuvpldhbhtww4agcdpv2hi" table="equipo_temporadas" schema="" catalog="ligaDeBasquet" columns="temporadas_id"/>
     </table>
   </data-source>
 </component>

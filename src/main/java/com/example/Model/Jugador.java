@@ -91,6 +91,9 @@ public class Jugador {
         this.posicion = posicion;
     }
 
+    @ManyToOne
+    private Equipo equipo;
+
     @Override
     public String toString() {
         return "Jugador{" +
@@ -102,5 +105,13 @@ public class Jugador {
                 ", rebotes=" + rebotes +
                 ", posicion='" + posicion + '\'' +
                 '}';
+    }
+
+    public Equipo getEquipo() {
+        return equipo;
+    }
+
+    public void setEquipo(Equipo equipo) {
+        this.equipo = equipo;
     }
 }
