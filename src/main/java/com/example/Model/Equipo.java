@@ -10,6 +10,7 @@ import java.util.Set;
 /**
  * Created by jhipster on 14/10/15.
  */
+//
 @Entity
 public class Equipo {
 
