@@ -1,4 +1,6 @@
 package com.example.Model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -91,6 +93,7 @@ public class Jugador {
         this.posicion = posicion;
     }
 
+    @JsonIgnore
     @ManyToOne
     private Equipo equipo;
 
